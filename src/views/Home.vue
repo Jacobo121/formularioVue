@@ -88,6 +88,14 @@ export default {
         return
       }
       console.log('el campo no esta vacio')
+      //enviar datos
+
+      this.tarea = {
+        nombre: "",
+        categorias: [],
+        estado: "",
+        numero: 0
+      }
     },
   },
 
