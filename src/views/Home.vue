@@ -1,9 +1,9 @@
 <template>
- <form>
+ <form @submit.prevent="procesarFormulario">
    <input type="text"
           class="form-control my-2"
           placeholder="Ingrese nombre"
-          v-model="tarea.nombre"
+          v-model.trim="tarea.nombre"
    >
 
     <div class="form-check form-check-inline">
@@ -14,7 +14,6 @@
       <input class="form-check-input" v-model="tarea.categorias" type="checkbox" id="inlineCheckbox2" value="nodeJs">
       <label class="form-check-label" for="inlineCheckbox2">Node.js</label>
     </div>
-
     <div class="mt-2">
       <div class="form-check form-check-inline">
         <input  type="radio" 
@@ -35,14 +34,22 @@
         <label for="radio-2" class="form-check-label" >Relax</label>
       </div>
     </div>
+
+    <div class="mt-2">
+      <input  type="number"
+              class="form-control"
+              v-model.number="tarea.numero"
+      />
+    </div>
+
+  <button class="btn btn-dark mt-2 btn-block" >
+    Procesar
+  </button>
+
  </form>
 
-  <div class="mt-2">
-    <input  type="number"
-            class="form-control"
-            v-model.number="tarea.numero"
-    />
-  </div>
+  
+
 
   <hr>
  <p>
@@ -68,5 +75,16 @@ export default {
       }
     }
   },
+
+  methods: {
+    procesarFormulario() {
+      console.log(this.tarea)
+      if(this.tarea.nombre.trim() === "") {
+        console.log('Campo vacio')
+        return
+      }
+      console.log('el campo no esta vacio')
+    }
+  }
 }
 </script>
