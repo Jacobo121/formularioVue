@@ -42,7 +42,10 @@
       />
     </div>
 
-  <button class="btn btn-dark mt-2 btn-block" >
+  <button 
+      class="btn btn-dark mt-2 btn-block" 
+      :disabled="disabledBoton"
+  >
     Procesar
   </button>
 
@@ -72,7 +75,8 @@ export default {
         categorias: [],
         estado: "",
         numero: 0
-      }
+      },
+
     }
   },
 
@@ -84,6 +88,12 @@ export default {
         return
       }
       console.log('el campo no esta vacio')
+    },
+  },
+
+  computed: {
+    disabledBoton() {
+      return this.tarea.nombre.trim() === "" ? true : false
     }
   }
 }
