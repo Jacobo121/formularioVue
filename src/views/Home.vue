@@ -3,13 +3,22 @@
    <input type="text"
           class="form-control my-2"
           placeholder="Ingrese nombre"
-          v-model="texto"
+          v-model="tarea.nombre"
    >
 
-   <p>
-     {{texto}}
-   </p>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" v-model="tarea.categorias" type="checkbox" id="inlineCheckbox1" value="javascript">
+      <label class="form-check-label" for="inlineCheckbox1">Javascript</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" v-model="tarea.categorias" type="checkbox" id="inlineCheckbox2" value="nodeJs">
+      <label class="form-check-label" for="inlineCheckbox2">Node.js</label>
+    </div>
  </form>
+
+ <p>
+   {{tarea}}
+ </p>
 </template>
 
 <script>
@@ -22,7 +31,10 @@ export default {
 
   data() {
     return {
-      texto: "",
+      tarea: {
+        nombre: "",
+        categorias: [],
+      }
     }
   },
 }
