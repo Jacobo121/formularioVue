@@ -1,6 +1,15 @@
 <template>
-  <div class="home">
-  </div>
+ <form>
+   <input type="text"
+          class="form-control my-2"
+          placeholder="Ingrese nombre"
+          v-model="texto"
+   >
+
+   <p>
+     {{texto}}
+   </p>
+ </form>
 </template>
 
 <script>
@@ -9,6 +18,12 @@
 export default {
   name: 'Home',
   components: {
-  }
+  },
+
+  data() {
+    return {
+      texto: "",
+    }
+  },
 }
 </script>
