@@ -37,6 +37,14 @@
     </div>
  </form>
 
+  <div class="mt-2">
+    <input  type="number"
+            class="form-control"
+            v-model.number="tarea.numero"
+    />
+  </div>
+
+  <hr>
  <p>
    {{tarea}}
  </p>
@@ -56,6 +64,7 @@ export default {
         nombre: "",
         categorias: [],
         estado: "",
+        numero: 0
       }
     }
   },
